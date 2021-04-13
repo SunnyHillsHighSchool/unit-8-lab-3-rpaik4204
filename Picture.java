@@ -368,7 +368,32 @@ public class Picture
 
    ////////////////////// methods ///////////////////////////////////////
 
-   
+  //Ryan Paik
+  //Period 2
+  //Create a method for sepai tone
+
+  public void sepiaTone()
+  {
+    //Create a 2D pixel array
+    Pixel[][] pixels = this.getPixels2D();
+    //Create a for loop that iterates through each row above the middle line
+    for(int i = 0; i < pixels.length; i++)
+    {
+      //Create a for loop that iterates through each pixel in the row
+        for(int r = 0; r < pixels[i].length; r++)
+        {
+          //Create pixel object p
+          Pixel p = pixels[i][r];
+          int redValue = p.getRed();
+          int greenValue = p.getGreen();
+          int blueValue = p.getBlue();
+          //Set the values of red, green, and blue according to the sepia tone values
+          p.setRed((int)((redValue * .349) + (greenValue * .769) + (blueValue * .189)));
+          p.setGreen((int)((redValue * .349) + (greenValue * .686) + (blueValue * .168)));
+          p.setBlue((int)((redValue * .272) + (greenValue * .534) + (blueValue * .131)));
+        }
+    }
+  }
 
 
 } // this } is the end of class Picture, put all new methods before this
